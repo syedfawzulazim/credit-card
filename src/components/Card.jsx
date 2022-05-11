@@ -19,23 +19,33 @@ const Months = [
 ];
 
 const Years = [
-  2020, 2021, 2022, 2023, 2024, 2025, 2026, 2027, 2028, 2029, 2030,
+  "2020",
+  "2021",
+  "2022",
+  "2023",
+  "2024",
+  "2025",
+  "2026",
+  "2027",
+  "2028",
+  "2029",
+  "2030",
 ];
 
 const cardStyle = {
-  border: "1px solid red",
   width: "min(400px, 99%)",
-
+  borderRadius: "5px",
   padding: "20px",
-  height: "30rem",
+  height: "25rem",
   backgroundColor: "white",
   position: "absolute",
-  top: "4rem",
+  top: "8rem",
   left: "0",
   right: "0",
   marginLeft: "auto",
   marginRight: "auto",
   zIndex: "1",
+  boxShadow: "0 30px 60px 0 rgba(90, 116, 148, 0.4)",
 };
 
 const Card = () => {
@@ -44,12 +54,15 @@ const Card = () => {
   const onSubmitHandler = (event) => {
     event.preventDefault();
 
+    console.log("---Submit---");
     console.log(ctx.cardName);
-    console.log("123");
+    console.log(ctx.cardNumber);
+    console.log(ctx.expireMonth);
+    console.log(ctx.expireYear);
   };
   return (
     <div style={cardStyle}>
-      <div style={{ marginBottom: "70px" }}>1</div>
+      <div style={{ marginBottom: "90px" }}></div>
       <form onSubmit={onSubmitHandler}>
         <div>
           <Input
@@ -64,6 +77,8 @@ const Card = () => {
               value: ctx.cardNumber,
             }}
             onChange={ctx.setCardNumber}
+            onFocus={ctx.setFocus}
+            focused={ctx.focus}
           />
           <Input
             label="Card Name"
@@ -72,11 +87,13 @@ const Card = () => {
               marginBottom: "20px",
             }}
             input={{
-              name: "cardnumber",
+              name: "cardname",
               type: "text",
               value: ctx.cardName,
             }}
             onChange={ctx.setCardName}
+            onFocus={ctx.setFocus}
+            focused={ctx.focus}
           />
         </div>
         <div
@@ -93,8 +110,17 @@ const Card = () => {
                 options={Months}
                 width="48%"
                 height="37px"
+                value={ctx.expireMonth}
+                onChange={ctx.setExpireMonth}
               />
-              <Select label="Year" options={Years} width="48%" height="37px" />
+              <Select
+                label="Year"
+                options={Years}
+                width="48%"
+                height="37px"
+                value={ctx.expireYear}
+                onChange={ctx.setExpireYear}
+              />
             </div>
           </div>
           <div style={{ flexBasis: "33%", marginLeft: "20px" }}>
@@ -106,19 +132,19 @@ const Card = () => {
               }}
               input={{
                 name: "cvv",
-                type: "text",
+                type: "number",
+                value: ctx.cvv,
               }}
+              onChange={ctx.setCvv}
+              onFocus={ctx.setFocus}
+              focused={ctx.focus}
             ></Input>
           </div>
         </div>
         <div>
           <Button
             style={{
-              backgroundColor: "#0055d4",
-              color: "white",
               width: "100%",
-              padding: "10px",
-              margin: "20px 0",
             }}
           >
             Submit
