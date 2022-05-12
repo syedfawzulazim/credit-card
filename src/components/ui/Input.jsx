@@ -9,7 +9,7 @@ const Input = (props) => {
   const InputStyle = {
     fontSize: "20px",
     padding: "5px",
-    border: active ? "1px solid red" : "1px solid #c7dfe6",
+    border: active ? "1px solid #7ec5db" : "1px solid #c7dfe6",
     borderRadius: "5px",
     ...props.style,
   };
@@ -29,7 +29,7 @@ const Input = (props) => {
 
   return (
     <div style={{ display: "inline" }}>
-      <label>{props.label}</label>
+      <label style={{ fontSize: "10px" }}>{props.label}</label>
       <input
         style={InputStyle}
         {...props.input}

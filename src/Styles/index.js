@@ -4,7 +4,6 @@ export const styles = {
     height: "100vh",
   },
   main: {
-    border: "2px solid red",
     maxWidth: "1200px",
     margin: "0 auto",
     padding: "10px",

@@ -39,7 +39,7 @@ const cardStyle = {
   height: "25rem",
   backgroundColor: "white",
   position: "absolute",
-  top: "8rem",
+  top: "10rem",
   left: "0",
   right: "0",
   marginLeft: "auto",
