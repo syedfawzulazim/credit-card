@@ -1,5 +1,5 @@
 # Credit Card
- This credit card is build with only React(no other libraries) and one special thing about this project is there is no css files in it. 
+ This credit card is build with only React(no other libraries) and one special thing about this project is there is no css file in it. 
 
 
 
