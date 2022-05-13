@@ -1,7 +1,7 @@
 import React from "react";
 
 let defaultValues = {
-  cardNumber: "",
+  cardNumber: [],
   cardName: "",
   expireMonth: "",
   expireYear: "",

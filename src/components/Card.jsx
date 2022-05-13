@@ -51,6 +51,7 @@ const cardStyle = {
 const Card = () => {
   const ctx = React.useContext(CardContext);
 
+  console.log(ctx.cardNumber.toString());
   const onSubmitHandler = (event) => {
     event.preventDefault();
 
@@ -74,7 +75,7 @@ const Card = () => {
             input={{
               name: "cardnumber",
               type: "number",
-              value: ctx.cardNumber,
+              //value: 0,
             }}
             onChange={ctx.setCardNumber}
             onFocus={ctx.setFocus}

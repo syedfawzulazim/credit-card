@@ -16,7 +16,6 @@ const Input = (props) => {
 
   const handleOnChange = (event) => {
     onChange(event.target.value);
-    console.log(event.target.value);
   };
 
   const handleOnFocus = (event) => {

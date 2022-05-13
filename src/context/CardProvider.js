@@ -3,8 +3,13 @@ import CardContext from "./Card-Context";
 import useInput from "../hooks/use-Input";
 
 const CardProvider = (props) => {
+  let array = [];
+  for (let i = 0; i < 16; i++) {
+    array.push("#");
+  }
+
+  const [cardNumber, setCardNumber] = useState(array);
   const [cardName, setCardName] = useState("");
-  const [cardNumber, setCardNumber] = useState("");
   const [expireMonth, setExpireMonth] = useState("");
   const [expireYear, setExpireYear] = useState("");
   const [cvv, setCvv] = useState("");
@@ -15,7 +20,7 @@ const CardProvider = (props) => {
   };
 
   const numberChangeHandler = (number) => {
-    setCardNumber(number);
+    setCardNumber((prevArray) => [number, ...prevArray]);
   };
   const monthChangeHandler = (month) => {
     setExpireMonth(month);

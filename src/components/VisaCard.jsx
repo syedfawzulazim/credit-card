@@ -87,13 +87,17 @@ const VisaCard = () => {
                 src={image}
                 height={30}
                 width={40}
+                alt="chip"
               />
             </div>
             <div>VISA</div>
           </div>
-          <div style={{ padding: "15px 0", margin: "0 20px" }}>
+          <div style={{ padding: "5px 0 15px", margin: "0 20px" }}>
             <h2 style={cardNumberStyle}>
-              {ctx.cardNumber ? ctx.cardNumber : "#### #### #### ####"}
+              {/* {ctx.cardNumber ? ctx.cardNumber : "#### #### #### ####"} */}
+              {ctx.cardNumber.map((char, index) => {
+                return (index + 1) % 4 === 0 ? `${char} ` : `${char}`;
+              })}
             </h2>
           </div>
           <div style={styles.layout.flex}>
@@ -103,6 +107,7 @@ const VisaCard = () => {
                 ...cardNameStyle,
                 width: "80%",
                 textAlign: "left",
+                marginTop: "15px",
               }}
             >
               <label
@@ -121,6 +126,7 @@ const VisaCard = () => {
                   ...styles.layout.flexCol,
                   padding: "3px",
                   marginRight: "10px",
+                  marginTop: "15px",
                 }}
               >
                 <label
