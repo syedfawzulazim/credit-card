@@ -55,6 +55,11 @@ const VisaCard = () => {
     },
   };
 
+  let array = [];
+  for (let i = 0; i < 16; i++) {
+    let x = ctx.cardNumber[i] ? ctx.cardNumber[i] : "#";
+    array.push(x);
+  }
   const cardNumberStyle = {
     border:
       activeElement === "cardnumber"
@@ -94,8 +99,7 @@ const VisaCard = () => {
           </div>
           <div style={{ padding: "5px 0 15px", margin: "0 20px" }}>
             <h2 style={cardNumberStyle}>
-              {/* {ctx.cardNumber ? ctx.cardNumber : "#### #### #### ####"} */}
-              {ctx.cardNumber.map((char, index) => {
+              {array.map((char, index) => {
                 return (index + 1) % 4 === 0 ? `${char} ` : `${char}`;
               })}
             </h2>
@@ -127,6 +131,7 @@ const VisaCard = () => {
                   padding: "3px",
                   marginRight: "10px",
                   marginTop: "15px",
+                  marginBottom: "3px",
                 }}
               >
                 <label

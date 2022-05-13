@@ -51,7 +51,6 @@ const cardStyle = {
 const Card = () => {
   const ctx = React.useContext(CardContext);
 
-  console.log(ctx.cardNumber.toString());
   const onSubmitHandler = (event) => {
     event.preventDefault();
 
@@ -64,7 +63,7 @@ const Card = () => {
   return (
     <div style={cardStyle}>
       <div style={{ marginBottom: "90px" }}></div>
-      <form onSubmit={onSubmitHandler}>
+      <form onSubmit={onSubmitHandler} style={{ autocomplete: "off" }}>
         <div>
           <Input
             label="Card Number"
@@ -75,7 +74,7 @@ const Card = () => {
             input={{
               name: "cardnumber",
               type: "number",
-              //value: 0,
+              value: ctx.cardNumber,
             }}
             onChange={ctx.setCardNumber}
             onFocus={ctx.setFocus}
